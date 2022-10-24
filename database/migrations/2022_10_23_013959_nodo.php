@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Kalnoy\Nestedset\NestedSet;
 
 return new class extends Migration
 {
@@ -13,10 +14,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Nodo', function (Blueprint $table) {
-            $table->id();
+        Schema::create('arbol', function (Blueprint $table) {
+            $table->nestedSet();
             $table->string('parent')->nullable();
-            $table->string('title')->nullable();
+            $table->string('title');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('Nodo');
     }
 };
