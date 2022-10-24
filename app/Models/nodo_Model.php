@@ -22,5 +22,5 @@ class nodo_Model extends Model
         'title',
     ];
 
-    protected $dateFormat = 'Y-d-m H:i:s';  //funcioon para formateo de la fecha en SQL Server
+    protected $dateFormat = 'Y-d-m H:i:s';  //funcion para formateo de la fecha en SQL Server
 }
