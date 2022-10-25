@@ -51,13 +51,7 @@ class NodoController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\nodo_Model  $nodo_Model
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, nodo_Model $nodo_Model)
     {
         //
@@ -69,8 +63,19 @@ class NodoController extends Controller
      * @param  \App\Models\nodo_Model  $nodo_Model
      * @return \Illuminate\Http\Response
      */
-    public function destroy(nodo_Model $nodo_Model)
+    public function destroy(nodo_Model $id)
     {
-        //
+        try
+        {
+            nodo_Model::where('id', '=', $id)->delete();
+        }
+        catch(Exception $ex)
+        {
+            $bool = $nodo->isDescendantOf($parent);
+            if($bool == true)
+            {
+                echo "no se puede elimar el nodo", $ex->getMessage();
+            }
+        }
     }
 }
