@@ -26,12 +26,12 @@ class NodoController extends Controller
     {
         $nodo = new nodo_Model();
         try
-        {   
+        {
             $nodo->parent = $request['parent'];
             $nodo->title = $request['title'];
-            
-            $nodo->save(); 
-            
+
+            $nodo->save();
+
             if($request->parent && $request->parent !== 'none')
             {
                 $node = nodo_Model::find($request->parent);
@@ -41,7 +41,7 @@ class NodoController extends Controller
 
             echo $ex->getMessage();
         }
-        
+
         return \response($nodo);
     }
 
@@ -63,19 +63,19 @@ class NodoController extends Controller
      * @param  \App\Models\nodo_Model  $nodo_Model
      * @return \Illuminate\Http\Response
      */
-    public function destroy(nodo_Model $id)
+    public function destroy($id)
     {
         try
         {
-            nodo_Model::where('id', '=', $id)->delete();
+            $node = nodo_Model::find($id);
+            $node->delete();
+
+            return "El nodo se ha eliminado";
         }
         catch(Exception $ex)
         {
-            $bool = $nodo->isDescendantOf($parent);
-            if($bool == true)
-            {
-                echo "no se puede elimar el nodo", $ex->getMessage();
-            }
+
+            return "El nodo no se ha eliminado ".$ex->getMessage();
         }
     }
 }

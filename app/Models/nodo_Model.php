@@ -16,9 +16,10 @@ class nodo_Model extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
+        'id',
         'parent',
         'title',
     ];
 
-    //protected $dateFormat = 'Y-d-m H:i:s';  //funcion para formateo de la fecha en SQL Server
+    protected $dateFormat = 'Y-d-m H:i:s';  //funcion para formateo de la fecha en SQL Server
 }
