@@ -11,9 +11,12 @@ use Illuminate\Http\Request;
 class NodoController extends Controller
 {
 
+
     public function index()
     {
-        $nodos = nodo_Model::all();
+        $nodos = nodo_Model::withDepth()
+                ->get()
+                ->toTree();
         return \response($nodos);
 
     }
@@ -28,6 +31,12 @@ class NodoController extends Controller
             $nodo->title = $request['title'];
             
             $nodo->save(); 
+            
+            if($request->parent && $request->parent !== 'none')
+            {
+                $node = nodo_Model::find($request->parent);
+                $node->appendNode($nodo);
+            }
         }catch(Exception $ex){
 
             echo $ex->getMessage();
@@ -35,12 +44,8 @@ class NodoController extends Controller
         
         return \response($nodo);
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\nodo_Model  $nodo_Model
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function show(nodo_Model $nodo_Model)
     {
         //
