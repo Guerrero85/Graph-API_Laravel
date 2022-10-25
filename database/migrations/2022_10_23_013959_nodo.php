@@ -14,10 +14,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('arbol', function (Blueprint $table) {
-            $table->nestedSet();
+        Schema::create('nodo', function (Blueprint $table) {
+            $table->id();
             $table->string('parent')->nullable();
             $table->string('title');
+            $table->nestedSet();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::drop('Nodo');
+        Schema::drop('nodo');
     }
 };

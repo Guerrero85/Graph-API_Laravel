@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\NodoStoreRequest;
 use App\Models\nodo_Model;
 use Cassandra\Exception\ExecutionException;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 
 class NodoController extends Controller
@@ -21,17 +22,18 @@ class NodoController extends Controller
 
     public function store(NodoStoreRequest $request)
     {
-        $request->validate([
-
-            'parent_id',
-            'parent',
-            'title'
+        $nodo = new nodo_Model();
+        nodo_Model::Create([
+            'parent' => $request->parent,
+            'title' => $request->title
         ]);
 
-        $node = new Category($request->all());
-        $node->save(); // Saved as root
-
-        return \response($node);
+        if($request->parent)
+        {
+            $node = nodo_Model::find($request->parent);
+            $node->appedNode($nodo);
+        }
+        return \response($nodo);
     }
     /**
      * Display the specified resource.

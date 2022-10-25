@@ -12,12 +12,10 @@ class nodo_Model extends Model
     use HasFactory;
     use NodeTrait;
 
-    protected $table = 'arbol';
+    protected $table = 'nodo';
     protected $primaryKey = 'id';
 
     protected $fillable = [
-
-        'parent_id',
         'parent',
         'title',
     ];
