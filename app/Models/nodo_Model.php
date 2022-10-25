@@ -10,7 +10,6 @@ use Kalnoy\Nestedset\NodeTrait;
 class nodo_Model extends Model
 {
     use HasFactory;
-    use NodeTrait;
 
     protected $table = 'nodo';
     protected $primaryKey = 'id';
@@ -18,6 +17,7 @@ class nodo_Model extends Model
     protected $fillable = [
         'parent',
         'title',
+        'created_at'
     ];
 
     protected $dateFormat = 'Y-d-m H:i:s';  //funcion para formateo de la fecha en SQL Server
