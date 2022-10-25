@@ -5,12 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NodoStoreRequest;
 use App\Models\nodo_Model;
-use Cassandra\Exception\ExecutionException;
 use Exception;
-use GuzzleHttp\Promise\Create;
-use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
-use Psy\ExecutionLoopClosure;
 
 class NodoController extends Controller
 {
@@ -32,12 +28,6 @@ class NodoController extends Controller
             $nodo->title = $request['title'];
             
             $nodo->save(); 
-            if($request->parent)
-            {
-                $node = nodo_Model::find($request->parent);
-                $node->appedNode($nodo);
-            }
-            
         }catch(Exception $ex){
 
             echo $ex->getMessage();
