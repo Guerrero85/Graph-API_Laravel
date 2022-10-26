@@ -1,0 +1,108 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API nodo",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000/"
+        }
+    ],
+    "paths": {
+        "/api/nodo": {
+            "get": {
+                "summary": "Mostrar nodo",
+                "operationId": "df2423f3ab155ea4ca581357f528551b",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todos los nodo."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "default"
+                ],
+                "summary": "Store Nodo",
+                "description": "Store Node",
+                "operationId": "parent_id",
+                "requestBody": {
+                    "description": "crear nodo",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "parent",
+                                    "title"
+                                ],
+                                "properties": {
+                                    "parent": {
+                                        "type": "integer",
+                                        "format": "number",
+                                        "example": "0"
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "title"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response"
+                    }
+                }
+            }
+        },
+        "/api/nodo/{id}": {
+            "delete": {
+                "tags": [
+                    "default"
+                ],
+                "summary": "Delete existing node",
+                "description": "Deletes a record and returns no content",
+                "operationId": "deletenodo",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Nodo id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        }
+    }
+}

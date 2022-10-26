@@ -19,4 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/nodo', App\Http\Controllers\Api\NodoController::class);
+//Route::apiResource('/nodo', App\Http\Controllers\Api\NodoController::class);
+Route::get('nodo', [App\Http\Controllers\Api\NodoController::class, 'index']);
+Route::post('nodo', [App\Http\Controllers\Api\NodoController::class, 'store']);
+Route::delete('nodo/{id}', [App\Http\Controllers\Api\NodoController::class, 'destroy']);
