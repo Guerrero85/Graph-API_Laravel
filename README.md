@@ -76,6 +76,6 @@ More information regarding the project can be found here https://github.com/goth
 
 Command to run: dotnet run (inside terminal).
 
-|Package|Documentation|Group Chat|
+|Package|Documentación|Complemento|
 |:-----:|:-----------:|:--------:|
-| [![package](resources/image/packe-laravel.png)](https://github.com/lazychaser/laravel-nestedset) | [![documentations](resources/image/api-laravel.png)](https://laravel.com/docs/9.x/eloquent-resources) | [![Group Chat](docs/logo-chat.jpg)](https://t.me/joinchat/B35YY0QbLfd034CFnvCtCA) |
+| [![package](resources/image/packe-laravel.png)](https://github.com/lazychaser/laravel-nestedset) | [![documentations](resources/image/api-laravel.png)](https://laravel.com/docs/9.x/eloquent-resources) | [![Group Chat](resources/image/swagger-laravel.png)](https://github.com/DarkaOnLine/L5-Swagger) |
