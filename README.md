@@ -11,4 +11,4 @@ Command to run: dotnet run (inside terminal).
 
 |Package|Documentation|Group Chat|
 |:-----:|:-----------:|:--------:|
-| [![package](docs/logo-nuget.png)](https://www.nuget.org/packages/Telegram.Bot) | [![documentations](docs/logo-docs.png)](https://telegrambots.github.io/book/) | [![Group Chat](docs/logo-chat.jpg)](https://t.me/joinchat/B35YY0QbLfd034CFnvCtCA) |
+| [![package](docs/logo-nuget.png)](https://www.nuget.org/packages/Telegram.Bot) | [![documentations](resources/image/api-laravel.png)](https://laravel.com/docs/9.x/eloquent-resources) | [![Group Chat](docs/logo-chat.jpg)](https://t.me/joinchat/B35YY0QbLfd034CFnvCtCA) |
