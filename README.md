@@ -24,7 +24,7 @@ Ahora puede acceder al servidor en http://localhost:8000
 
 Abra Databases y establezca los valores de propiedad según sus requisitos
 
-    database/seeds/NodoDataSeeder.php
+    database/seeds/NodoSeeder.php
 
 Ejecute el seeder de base de datos y listo.
 
@@ -32,7 +32,7 @@ Ejecute el seeder de base de datos y listo.
 
 ***Nota***: Se recomienda tener una base de datos limpia antes de usar Seeders. Puede actualizar sus migraciones en cualquier momento para limpiar la base de datos ejecutando el siguiente comando
 
-    php artisan migrate:refresh
+    php artisan migrate:refresh --seed
     
 Se puede acceder a la API en [http://localhost:8000/api/nodo](http://127.0.0.1:8000/api/nodo).
 
@@ -48,7 +48,7 @@ Esta api tiene como funcion poder Crear, Eliminar y Listar nodos padres e hijos 
 ## Dependencies
 
 - [nestedset](https://github.com/lazychaser/laravel-nestedset) - Para manejo de nodos 
-- [L5-Swagger]((https://github.com/DarkaOnLine/L5-Swagger) - Para la documentacion y manejo de informacion de API por interfaz grafica 
+- [L5-Swagger](https://github.com/DarkaOnLine/L5-Swagger) - Para la documentacion y manejo de informacion de API por interfaz grafica 
 
 ## Folders
 
